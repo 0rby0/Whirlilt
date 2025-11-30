@@ -3,10 +3,10 @@
 
 This readme is here to act as a directory to other documentation.
 
-* [User Documentation]() (Currently Empty)
+* [User Documentation](./USERDOC.md)
   
-* [Changelog]() (Currently Empty)
+* [Changelog](./CHANGELOG.md)
 
-* [Development Documentation]() (Currently Empty)
+* [Development Documentation](./DEVDOC.md)
 
-* [Design Documentation]() (Currently Empty)
+* [Design Documentation](./DESIGNDOC.md)
