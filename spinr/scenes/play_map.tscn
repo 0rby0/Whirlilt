@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://ct30x4sxuk4h2"]
+
+[ext_resource type="PackedScene" uid="uid://c7pahg8q3dv4l" path="res://prefabs/player.tscn" id="1_00lnd"]
+[ext_resource type="Script" uid="uid://ojq5roc5nd02" path="res://scripts/orb_creator.gd" id="2_dliau"]
+[ext_resource type="Script" uid="uid://bwul1b57nlmci" path="res://scripts/bpm_timer.gd" id="3_qwvua"]
+
+[node name="Map" type="Node2D"]
+
+[node name="Game Camera" type="Camera2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("1_00lnd")]
+scale = Vector2(0.55, 0.55)
+
+[node name="Orb Pivot Point" type="Marker2D" parent="."]
+
+[node name="Orb Creator" type="Node2D" parent="Orb Pivot Point"]
+position = Vector2(324, 0)
+script = ExtResource("2_dliau")
+
+[node name="Spawn BPM Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+script = ExtResource("3_qwvua")
+
+[connection signal="timeout" from="Spawn BPM Timer" to="Orb Pivot Point/Orb Creator" method="_create_timer_out"]
+[connection signal="timeout" from="Spawn BPM Timer" to="Spawn BPM Timer" method="_on_timeout"]
