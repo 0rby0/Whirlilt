@@ -4,7 +4,7 @@ extends Node2D
 var userPath = OS.get_data_dir()
 
 # Sets a path for the game to create and store maps in
-var filePath = userPath + "/SpinR/Test.spr"
+var filePath = userPath + "/SpinR/" + global.mapTitle +".spr"
 
 func _ready():
 	var reader = ZIPReader.new()

@@ -7,6 +7,7 @@ var input_type = "mouse"
 var beat = 0
 var BPM = 60
 var map
+var mapTitle
 
 # Accuracy
 var hit_orbs = 0.0
