@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 global="*res://scripts/global_variables.gd"
+mm_global="*res://scripts/map_maker_variables.gd"
 
 [global_group]
 

@@ -1,5 +1,5 @@
 # SpinR Development Document
-#### Last Updated: 12/01/2026 | First Created: 09/01/2026
+#### Last Updated: 24/01/2026 | First Created: 09/01/2026
 
 ## Notes
 * All dates will be written in the format dd/mm/yyyy
@@ -93,3 +93,12 @@ Orbs know when they should have started and stopped existing / moving, so they c
 ticker is moved to a new segment. If the current beat is between the start and end point, then show the orb. For distance, the Design Doc mentions
 that the orbs are set up in such a way that they can be moved forward and back based on the current beat being multiplied by distances and start
 end points.
+
+- Amendment: Markers
+There needs to be some way to show where on the timeline the orbs are being created and deleted. To do so I can create two textures which can be used
+on a sprite, swapped out based on a variable. I can then create instances of these on the screen above the timeline. Creating them in the right place
+will need some math to calculate the y position based on the slider value.
+
+Something like taking the width of the screen (which the timeline covers) then dividing it by the number of ticks on the timeline to get the pixel
+width of each chunk, then divide the chunk width by 2 to center on the chunk. You can then take the current beat, subtract 1, multiply by the
+pixel width, and then add the half amount. This should give the correct x position for the marker.
