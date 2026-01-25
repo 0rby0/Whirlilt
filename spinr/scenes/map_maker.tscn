@@ -1,12 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://8lsy1oueeddf"]
+[gd_scene load_steps=13 format=3 uid="uid://8lsy1oueeddf"]
 
 [ext_resource type="Script" uid="uid://bsyu84use3qtv" path="res://scripts/open_file_system.gd" id="1_adfud"]
 [ext_resource type="Script" uid="uid://bse4it28dogwh" path="res://scripts/map_maker_variables.gd" id="1_gluko"]
 [ext_resource type="Script" uid="uid://bfq7pilyrrxme" path="res://scripts/timeline.gd" id="1_yrtib"]
 [ext_resource type="Script" uid="uid://cex1g4o14y2gc" path="res://scripts/bpm_controller.gd" id="2_rl52m"]
+[ext_resource type="Script" uid="uid://dfn3ee4uumidv" path="res://scripts/audio_loader.gd" id="4_8a5sl"]
+[ext_resource type="Script" uid="uid://b5ldnmll25mi7" path="res://scripts/load_map_maker_menu.gd" id="4_arqoa"]
 [ext_resource type="Script" uid="uid://lw7rov3w5stc" path="res://scripts/mm_orb_maker.gd" id="5_7mntf"]
 [ext_resource type="Script" uid="uid://cbviq8r5d0e2n" path="res://scripts/marker_creator.gd" id="5_hhcyl"]
 [ext_resource type="Script" uid="uid://bl7mpg4vneol5" path="res://scripts/mm_add_menu_toggle.gd" id="7_kjevn"]
+[ext_resource type="Script" uid="uid://b6vflyjyyex6o" path="res://scripts/map_export.gd" id="7_l68bq"]
 [ext_resource type="Script" uid="uid://85dkdtaow5i1" path="res://scripts/play_button.gd" id="8_vxeng"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_7mntf"]
@@ -105,16 +108,29 @@ filters = PackedStringArray("*.mp3")
 
 [node name="Save" type="Button" parent="Detail Edit/Menu Background"]
 layout_mode = 0
-offset_left = 337.0
-offset_top = 180.0
-offset_right = 390.0
-offset_bottom = 211.0
+offset_left = 344.0
+offset_top = 187.0
+offset_right = 397.0
+offset_bottom = 218.0
 text = "Done"
+
+[node name="Load" type="Button" parent="Detail Edit/Menu Background"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 185.0
+offset_right = 91.0
+offset_bottom = 216.0
+text = "Load Map"
+script = ExtResource("4_arqoa")
 
 [node name="Editor" type="CanvasLayer" parent="."]
 visible = false
+follow_viewport_enabled = true
+
+[node name="Beat Timer" type="Timer" parent="Editor"]
 
 [node name="Audio File Player" type="AudioStreamPlayer2D" parent="Editor"]
+script = ExtResource("4_8a5sl")
 
 [node name="Track Outer" type="MeshInstance2D" parent="Editor"]
 position = Vector2(551, 312)
@@ -133,10 +149,10 @@ scale = Vector2(0.973708, 0.973708)
 mesh = SubResource("SphereMesh_7mntf")
 
 [node name="Play Button" type="Button" parent="Editor"]
-offset_left = 532.0
-offset_top = 272.0
-offset_right = 569.0
-offset_bottom = 350.0
+offset_left = 562.0
+offset_top = 287.0
+offset_right = 599.0
+offset_bottom = 365.0
 theme_override_font_sizes/font_size = 51
 text = ">"
 flat = true
@@ -149,13 +165,16 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Export Button" type="Button" parent="Editor/Hide While Playing"]
+layout_mode = 0
 offset_left = 1010.0
 offset_top = 9.0
 offset_right = 1140.0
 offset_bottom = 48.0
 text = "Export & Exit"
+script = ExtResource("7_l68bq")
 
 [node name="Settings" type="Button" parent="Editor/Hide While Playing"]
+layout_mode = 0
 offset_left = 1010.0
 offset_top = 55.0
 offset_right = 1139.0
@@ -163,10 +182,10 @@ offset_bottom = 92.0
 text = "Map Settings"
 
 [node name="Timeline" type="HSlider" parent="Editor/Hide While Playing"]
+layout_mode = 0
 offset_top = 628.0
 offset_right = 1152.0
 offset_bottom = 644.0
-max_value = 20.0
 script = ExtResource("1_yrtib")
 
 [node name="Current Beat" type="Label" parent="Editor/Hide While Playing/Timeline"]
@@ -184,6 +203,7 @@ offset_bottom = 1.0
 script = ExtResource("5_hhcyl")
 
 [node name="Add Orb Button" type="Button" parent="Editor/Hide While Playing"]
+layout_mode = 0
 offset_left = 1104.0
 offset_top = 539.0
 offset_right = 1143.0
@@ -216,6 +236,7 @@ offset_right = 115.0
 offset_bottom = 55.0
 
 [node name="End Text" type="Label" parent="Editor/Hide While Playing/Add Orb Button/Background"]
+layout_mode = 0
 offset_left = 22.0
 offset_top = 73.0
 offset_right = 62.0
@@ -223,12 +244,14 @@ offset_bottom = 96.0
 text = "End"
 
 [node name="End Input" type="TextEdit" parent="Editor/Hide While Playing/Add Orb Button/Background"]
+layout_mode = 0
 offset_left = 73.0
 offset_top = 67.0
 offset_right = 115.0
 offset_bottom = 105.0
 
 [node name="Angle Text" type="Label" parent="Editor/Hide While Playing/Add Orb Button/Background"]
+layout_mode = 0
 offset_left = 22.0
 offset_top = 128.0
 offset_right = 66.0
@@ -236,6 +259,7 @@ offset_bottom = 151.0
 text = "Angle"
 
 [node name="Angle Input" type="TextEdit" parent="Editor/Hide While Playing/Add Orb Button/Background"]
+layout_mode = 0
 offset_left = 73.0
 offset_top = 120.0
 offset_right = 115.0
@@ -257,7 +281,12 @@ position = Vector2(551, 312)
 [connection signal="pressed" from="Detail Edit/Menu Background/Music File Text/Select Button" to="Detail Edit/Menu Background/Music File Text/Select Button" method="_on_pressed"]
 [connection signal="file_selected" from="Detail Edit/Menu Background/Music File Text/FileDialog" to="Detail Edit/Menu Background/Music File Text/Select Button" method="audio_file_selected"]
 [connection signal="pressed" from="Detail Edit/Menu Background/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="Detail Edit/Menu Background/Load" to="Detail Edit/Menu Background/Load" method="_on_pressed"]
+[connection signal="timeout" from="Editor/Beat Timer" to="Editor/Play Button" method="beat_timer_out"]
+[connection signal="finished" from="Editor/Audio File Player" to="Editor/Play Button" method="_audio_out"]
 [connection signal="pressed" from="Editor/Play Button" to="Editor/Play Button" method="_on_pressed"]
+[connection signal="pressed" from="Editor/Hide While Playing/Export Button" to="Editor/Hide While Playing/Export Button" method="_on_pressed"]
+[connection signal="pressed" from="Editor/Hide While Playing/Settings" to="." method="_open_menu"]
 [connection signal="value_changed" from="Editor/Hide While Playing/Timeline" to="Editor/Hide While Playing/Timeline" method="current_beat_changed"]
 [connection signal="pressed" from="Editor/Hide While Playing/Add Orb Button" to="Editor/Hide While Playing/Add Orb Button" method="_on_pressed"]
 [connection signal="pressed" from="Editor/Hide While Playing/Add Orb Button/Background/Create Button" to="Editor/Hide While Playing/Add Orb Button" method="create_button_pressed"]

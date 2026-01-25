@@ -1,11 +1,19 @@
 extends Button
 
 @onready var timeline = $"../Hide While Playing/Timeline"
+@onready var audioPlayer = $"../Audio File Player"
+@onready var timer = $"../Beat Timer"
 
 func _on_pressed():
-	$"../Audio File Player".play()
+	$"../Hide While Playing".visible = false
+	timer.wait_time = (1 / (global.mmBPM / 60))
+	timer.start()
+	audioPlayer.play()
 
-func _physics_process(_delta):
-	while mm_global.playing:
-		var beat = (mm_global.BPM / 60) * $"../Audio File Player".get_playback_position() 
-		timeline.value = beat
+func beat_timer_out():
+	global.mm_beat += 1
+	timer.start()
+
+func _audio_out():
+	timer.stop()
+	$"../Hide While Playing".visible = true

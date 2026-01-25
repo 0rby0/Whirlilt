@@ -1,28 +1,38 @@
 extends Control
 
-var title
-var BPM
-var audioFile
-var trackLengthSec
-
-var playing = false
-
-var map = [{"start": 1, "end": 8, "angle": 90}, {"start": 2, "end": 10, "angle": 180}, {"start": 5, "end": 9, "angle": 30}]
+func _ready():
+	if global.editing == true:
+		$"Detail Edit".visible = false
+		$Editor.visible = true
+	else:
+		if global.mmTitle != null:
+			$"Detail Edit/Menu Background/Title Text/Title Input".text = global.mmTitle
+			$"Detail Edit/Menu Background/BPM Text/BPM Display".text = str(global.mmBPM)
+			$"Detail Edit/Menu Background/Music File Text/Select Button".text = global.mmMapSelect
+		$"Detail Edit".visible = true
+		$Editor.visible = false
 
 func _on_save_pressed():
-	title = $"Detail Edit/Menu Background/Title Text/Title Input".text
-	BPM = $"Detail Edit/Menu Background/BPM Text/BPM Display".text
-	
+	global.mmTitle = $"Detail Edit/Menu Background/Title Text/Title Input".text
+	global.mmBPM = int($"Detail Edit/Menu Background/BPM Text/BPM Display".text)
+
 	var file = FileAccess.open($"Detail Edit/Menu Background/Music File Text/Select Button".text, FileAccess.READ)
+	global.mmMapSelect = $"Detail Edit/Menu Background/Music File Text/Select Button".text
 	var data = file.get_buffer(file.get_length())
 	file.close()
-	audioFile = AudioStreamMP3.load_from_buffer(data)
-	$"Editor/Audio File Player".stream = audioFile
-	trackLengthSec = $"Editor/Audio File Player".stream.get_length()
+	global.mmAudioFile = AudioStreamMP3.load_from_buffer(data)
+	$"Editor/Audio File Player".stream = global.mmAudioFile
+	global.mmTrackLengthSec = $"Editor/Audio File Player".stream.get_length()
 	
-	var tickNum = float(float(BPM) / 60) * float(trackLengthSec)
+	var tickNum = float(float(global.mmBPM) / 60) * float(global.mmTrackLengthSec)
+	global.tickCount = tickNum
 	$"Editor/Hide While Playing/Timeline".max_value = int(tickNum)
 	$"Editor/Hide While Playing/Timeline".tick_count = int(tickNum)
 	
-	$"Detail Edit".visible = false
-	$Editor.visible = true
+	global.editing = true
+	
+	get_tree().change_scene_to_file("res://scenes/map_maker.tscn")
+
+func _open_menu():
+	global.editing = false
+	get_tree().change_scene_to_file("res://scenes/map_maker.tscn")

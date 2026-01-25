@@ -5,7 +5,7 @@ var orb = preload("res://prefabs/orb.tscn")
 var current_orb = 0
 
 func _create_timer_out():
-	if global.map[current_orb].beat == global.beat:
+	if global.map[current_orb].start == global.beat:
 		$"..".rotation = global.map[current_orb].angle
 		var orb_instance = orb.instantiate()
 		orb_instance.distance_to_end = 10.0

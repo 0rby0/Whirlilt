@@ -23,7 +23,7 @@ func _on_clickbox_pressed():
 	global.focused = true
 
 func _on_yes_pressed():
-	mm_global.map.remove_at(beatRef)
+	global.mmMap.remove_at(beatRef)
 	get_tree().change_scene_to_file("res://scenes/map_maker.tscn")
 	global.focused = false
 

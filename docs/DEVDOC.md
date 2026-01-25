@@ -1,5 +1,5 @@
 # SpinR Development Document
-#### Last Updated: 24/01/2026 | First Created: 09/01/2026
+#### Last Updated: 25/01/2026 | First Created: 09/01/2026
 
 ## Notes
 * All dates will be written in the format dd/mm/yyyy
@@ -102,3 +102,31 @@ will need some math to calculate the y position based on the slider value.
 Something like taking the width of the screen (which the timeline covers) then dividing it by the number of ticks on the timeline to get the pixel
 width of each chunk, then divide the chunk width by 2 to center on the chunk. You can then take the current beat, subtract 1, multiply by the
 pixel width, and then add the half amount. This should give the correct x position for the marker.
+
+### Changes During Implementation
+#### File Loader
+The file loader uses the second discussed option of a menu reading one foler for all .spr files. All other discussed methods seem to be unchanged.
+
+#### Map Maker
+All basic information entry and storage is the same as discussed.
+
+File writing is slightly different as the files are created directly in a .spr file rather than a zip first.
+
+Reading uses the same method as the selection screen but loads the information from the file instead, with the exception of the audio file.
+
+Getting the audio length uses the stream player not the file but otherwise is the same as discussed.
+
+Currently the map just plays from the start when the play button is pressed. Adding the ability to start from a specific point, while easy to do and
+useful in some situations is not currently a priority or really necesarry.
+
+The play button hides the timeline rather than locking it. And the ticker doesn't move. Instead there is a timer that increases the beat when it
+expires. Similarly to the reegular gameplay.
+
+The scroll bar has been implemented with a Godot slider node using the ticks as the magenetising marks. Otherwise the same.
+
+The orbs are implemented as discussed. Although they have been fixed by changing the orb position variable to be an origin point not a current point.
+
+Markers are the same, with the exception of the half and -1 part, which are not neccesary.
+
+### Menu System
+TBD

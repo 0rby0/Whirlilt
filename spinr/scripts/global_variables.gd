@@ -13,6 +13,18 @@ var mapTitle
 var mm_beat = 0
 var focused = false
 
+var mmTitle
+var mmBPM
+var mmAudioFile
+var mmTrackLengthSec
+var mmMapSelect
+
+var tickCount = 100
+
+var editing = false
+
+var mmMap = []
+
 # Accuracy
 var hit_orbs = 0.0
 var missed_orbs = 0.0
