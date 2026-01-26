@@ -3,7 +3,7 @@ extends VBoxContainer
 var userPath = OS.get_data_dir()
 var mapsPath = userPath + "/SpinR/"
 
-var button = load("res://prefabs/mm_map_button.tscn")
+var button = load("res://prefabs/map_button.tscn")
 
 func fileTypeCorrect(file):
 	# Check the file extension of the given file

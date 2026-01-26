@@ -49,4 +49,6 @@ func _on_pressed():
 		writer.write_file(audioData)
 		
 		writer.close()
+		
+		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 	

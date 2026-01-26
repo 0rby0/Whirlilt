@@ -1,5 +1,5 @@
 # SpinR Development Document
-#### Last Updated: 25/01/2026 | First Created: 09/01/2026
+#### Last Updated: 26/01/2026 | First Created: 09/01/2026
 
 ## Notes
 * All dates will be written in the format dd/mm/yyyy
@@ -128,5 +128,20 @@ The orbs are implemented as discussed. Although they have been fixed by changing
 
 Markers are the same, with the exception of the half and -1 part, which are not neccesary.
 
-### Menu System
-TBD
+### Main Menu
+The main menu will be a circle to fit with the rotation theme of the game. The circle will be divided into even parts for each menu/gamemode.
+
+Current segments are:
+* Play
+* Create
+* Exit
+
+Next, a settings menu needs to be added.
+
+The order of the segments will be:
+Play - Top
+Create - Right
+Exit - Bottom
+Settings - Left
+
+Selection can be handled with an area node on each button and a modified version of the players spinner.

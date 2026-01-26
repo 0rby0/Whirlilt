@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ct30x4sxuk4h2"]
+[gd_scene load_steps=6 format=3 uid="uid://ct30x4sxuk4h2"]
 
 [ext_resource type="PackedScene" uid="uid://c7pahg8q3dv4l" path="res://prefabs/player.tscn" id="1_00lnd"]
 [ext_resource type="Script" uid="uid://ci08v8yl1ry3f" path="res://scripts/map_loader.gd" id="1_w7fhx"]
 [ext_resource type="Script" uid="uid://ojq5roc5nd02" path="res://scripts/orb_creator.gd" id="2_dliau"]
 [ext_resource type="Script" uid="uid://bwul1b57nlmci" path="res://scripts/bpm_timer.gd" id="3_qwvua"]
+[ext_resource type="Script" uid="uid://bxnb3nbnkjxmi" path="res://scripts/map_complete.gd" id="5_ta1n7"]
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_w7fhx")
@@ -25,6 +26,8 @@ one_shot = true
 script = ExtResource("3_qwvua")
 
 [node name="Music Player" type="AudioStreamPlayer2D" parent="."]
+script = ExtResource("5_ta1n7")
 
 [connection signal="timeout" from="Spawn BPM Timer" to="Orb Pivot Point/Orb Creator" method="_create_timer_out"]
 [connection signal="timeout" from="Spawn BPM Timer" to="Spawn BPM Timer" method="_on_timeout"]
+[connection signal="finished" from="Music Player" to="Music Player" method="_on_finished"]

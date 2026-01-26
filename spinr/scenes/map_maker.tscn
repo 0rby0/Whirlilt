@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://8lsy1oueeddf"]
+[gd_scene load_steps=14 format=3 uid="uid://8lsy1oueeddf"]
 
 [ext_resource type="Script" uid="uid://bsyu84use3qtv" path="res://scripts/open_file_system.gd" id="1_adfud"]
 [ext_resource type="Script" uid="uid://bse4it28dogwh" path="res://scripts/map_maker_variables.gd" id="1_gluko"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://dfn3ee4uumidv" path="res://scripts/audio_loader.gd" id="4_8a5sl"]
 [ext_resource type="Script" uid="uid://b5ldnmll25mi7" path="res://scripts/load_map_maker_menu.gd" id="4_arqoa"]
 [ext_resource type="Script" uid="uid://lw7rov3w5stc" path="res://scripts/mm_orb_maker.gd" id="5_7mntf"]
+[ext_resource type="Script" uid="uid://dygaq2ymouo5e" path="res://scripts/back_to_menu.gd" id="5_gnmvy"]
 [ext_resource type="Script" uid="uid://cbviq8r5d0e2n" path="res://scripts/marker_creator.gd" id="5_hhcyl"]
 [ext_resource type="Script" uid="uid://bl7mpg4vneol5" path="res://scripts/mm_add_menu_toggle.gd" id="7_kjevn"]
 [ext_resource type="Script" uid="uid://b6vflyjyyex6o" path="res://scripts/map_export.gd" id="7_l68bq"]
@@ -122,6 +123,15 @@ offset_right = 91.0
 offset_bottom = 216.0
 text = "Load Map"
 script = ExtResource("4_arqoa")
+
+[node name="Back" type="Button" parent="Detail Edit/Menu Background"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 4.0
+offset_right = 37.0
+offset_bottom = 35.0
+text = "<"
+script = ExtResource("5_gnmvy")
 
 [node name="Editor" type="CanvasLayer" parent="."]
 visible = false
@@ -282,6 +292,7 @@ position = Vector2(551, 312)
 [connection signal="file_selected" from="Detail Edit/Menu Background/Music File Text/FileDialog" to="Detail Edit/Menu Background/Music File Text/Select Button" method="audio_file_selected"]
 [connection signal="pressed" from="Detail Edit/Menu Background/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="Detail Edit/Menu Background/Load" to="Detail Edit/Menu Background/Load" method="_on_pressed"]
+[connection signal="pressed" from="Detail Edit/Menu Background/Back" to="Detail Edit/Menu Background/Back" method="_on_pressed"]
 [connection signal="timeout" from="Editor/Beat Timer" to="Editor/Play Button" method="beat_timer_out"]
 [connection signal="finished" from="Editor/Audio File Player" to="Editor/Play Button" method="_audio_out"]
 [connection signal="pressed" from="Editor/Play Button" to="Editor/Play Button" method="_on_pressed"]
