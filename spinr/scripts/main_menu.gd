@@ -13,7 +13,7 @@ func _exit_pressed():
 	get_tree().quit()
 
 func _settings_pressed():
-	pass
+	get_tree().change_scene_to_file("res://scenes/settings.tscn")
 
 # Hovers
 func _play_hover(_area):
@@ -59,4 +59,4 @@ func _physics_process(_delta):
 			1: get_tree().change_scene_to_file("res://scenes/map_menu.tscn")
 			2: get_tree().change_scene_to_file("res://scenes/map_maker.tscn")
 			3: get_tree().quit()
-			4: pass
+			4: get_tree().change_scene_to_file("res://scenes/settings.tscn")

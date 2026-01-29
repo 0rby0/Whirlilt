@@ -8,6 +8,7 @@ var beat = 0
 var BPM = 60
 var map
 var mapTitle
+var moveTime
 
 # Map Maker Variables
 var mm_beat = 0
@@ -18,6 +19,7 @@ var mmBPM
 var mmAudioFile
 var mmTrackLengthSec
 var mmMapSelect
+var mmMoveTime
 
 var tickCount = 100
 

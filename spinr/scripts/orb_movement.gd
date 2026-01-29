@@ -9,8 +9,10 @@ var end_on_beat
 
 var speed_to_travel
 
+@onready var orb_position = $Hitbox.position.x
 
 func _physics_process(_delta):
 	distance_to_end = distance_to_travel - (speed_to_travel * (float(global.beat) - start_on_beat))
-	var orb_position = $Hitbox.position.x
-	$Hitbox.position.x = orb_position - distance_to_end
+	
+	var tween = create_tween()
+	tween.tween_property($Hitbox, "position", Vector2(orb_position + distance_to_end, 0), global.moveTime)

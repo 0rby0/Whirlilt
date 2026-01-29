@@ -145,3 +145,35 @@ Exit - Bottom
 Settings - Left
 
 Selection can be handled with an area node on each button and a modified version of the players spinner.
+
+### Changes During Implementation
+No changes were made during implementation.
+
+### Settings Menu
+The settings menu is currently only able to house the control input option. That being said, it can be a new scene with a back button and a'
+collection of buttons to change settings in the global variables script.
+
+### Changes During Implementation
+No changes are made.
+
+## At this point the game is now in Version 2.0.0
+
+### Orb Update
+Currently the game uses two codes for the orbs. The one for the map maker is correct as it uses the original prototype code. The code for the
+map player needs to be updated to use the correct code.
+
+### Changes during implementation
+There is now a 3 beat delay before the music begins to allow the game to load the orbs as there seems to be some sort of proccessing delay.
+
+### Orb Movement Smoothing
+Currently the orbs are very jittery as they have no inbetween points between the beats. This can be fixed by adding tweens in the orb movement code.
+
+### Changes During Emplementation
+Two new global variables were made to track the amount of time the tweens have for animation, one for normal play and one for map maker repsectively.
+
+### Multi-Map Fix
+Currently the entire game needs to be restarted to play a second map. This can be fixed by reseting the global beat variable to 0 when the map ends.
+
+### Practice Mode
+To make demonstrating the game easier, practice mode will be useful to have. This can be done by having a map that effectively proceduraly generates
+a randomised map until the player exits.

@@ -14,20 +14,22 @@ script = ExtResource("1_w7fhx")
 [node name="Player" parent="." instance=ExtResource("1_00lnd")]
 scale = Vector2(0.55, 0.55)
 
-[node name="Orb Pivot Point" type="Marker2D" parent="."]
-
-[node name="Orb Creator" type="Node2D" parent="Orb Pivot Point"]
-position = Vector2(324, 0)
-script = ExtResource("2_dliau")
-
 [node name="Spawn BPM Timer" type="Timer" parent="."]
-wait_time = 10.0
-one_shot = true
+autostart = true
 script = ExtResource("3_qwvua")
 
 [node name="Music Player" type="AudioStreamPlayer2D" parent="."]
 script = ExtResource("5_ta1n7")
 
-[connection signal="timeout" from="Spawn BPM Timer" to="Orb Pivot Point/Orb Creator" method="_create_timer_out"]
+[node name="Center" type="Marker2D" parent="."]
+
+[node name="Orb Creator" type="Node2D" parent="Center" node_paths=PackedStringArray("orbs")]
+position = Vector2(324, 0)
+script = ExtResource("2_dliau")
+orbs = NodePath("../../Orbs")
+
+[node name="Orbs" type="Node2D" parent="."]
+
+[connection signal="timeout" from="Spawn BPM Timer" to="Center/Orb Creator" method="_create_timer_out"]
 [connection signal="timeout" from="Spawn BPM Timer" to="Spawn BPM Timer" method="_on_timeout"]
 [connection signal="finished" from="Music Player" to="Music Player" method="_on_finished"]

@@ -31,7 +31,10 @@ func _ready():
 	
 	# Sets the audio player to use the loaded audio
 	$"Music Player".stream = audio
-	$"Music Player".play()
+	
+	# Set the BPM timer
+	$"Spawn BPM Timer".wait_time = 1.0 / (float(global.BPM) / 60.0)
+	global.moveTime = 1.0 / (float(global.BPM) / 60.0)
 	
 	# Closes all opened files to avoid unneccesary recourse usage
 	reader.close()

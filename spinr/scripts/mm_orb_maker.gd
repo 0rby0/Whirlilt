@@ -12,7 +12,7 @@ func _ready():
 		for i in range(global.mmMap.size()):
 			$"..".rotation = global.mmMap[i].angle
 			var orb_instance = orb.instantiate()
-			orb_instance.distance_to_end = 200.0
+			orb_instance.distance_to_end = 216.0
 			orb_instance.distance_to_travel = orb_instance.distance_to_end
 			orb_instance.start_on_beat = global.mmMap[i].start
 			orb_instance.end_on_beat = global.mmMap[i].end

@@ -15,6 +15,7 @@ func _ready():
 func _on_save_pressed():
 	global.mmTitle = $"Detail Edit/Menu Background/Title Text/Title Input".text
 	global.mmBPM = int($"Detail Edit/Menu Background/BPM Text/BPM Display".text)
+	global.mmMoveTime = 1.0 / (float(global.mmBPM) / 60.0)
 
 	var file = FileAccess.open($"Detail Edit/Menu Background/Music File Text/Select Button".text, FileAccess.READ)
 	global.mmMapSelect = $"Detail Edit/Menu Background/Music File Text/Select Button".text

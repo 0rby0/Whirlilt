@@ -1,9 +1,8 @@
 extends Timer
 
-func _ready():
-	self.wait_time = 1.0 / (global.BPM / 60.0)
-	self.start()
-
 func _on_timeout():
+	if global.beat == 3:
+		$"../Music Player".play()
+	
 	global.beat += 1
 	self.start()

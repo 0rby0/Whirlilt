@@ -6,7 +6,7 @@ extends Button
 
 func _on_pressed():
 	$"../Hide While Playing".visible = false
-	timer.wait_time = (1 / (global.mmBPM / 60))
+	timer.wait_time = 1.0 / (float(global.mmBPM) / 60.0)
 	timer.start()
 	audioPlayer.play()
 
