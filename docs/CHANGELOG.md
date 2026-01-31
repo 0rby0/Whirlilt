@@ -1,4 +1,4 @@
-# SpinR Design Document
+Z# SpinR Design Document
 #### Last Updated: 16/01/2026 | First Created: 26/01/2026
 
 ## Notes
@@ -9,6 +9,11 @@
 	* X represents the update number.
 	* Y represents any minor adjustments or fixes
 * Any time a version number is refrences with only two points, assume it is excluding the first version number.
+
+> ## 2.0.2
+> * Adjusted orb movement to decrease jittering
+> * Added practice mode
+> * Adjusted main menu to accommodate practice mode
 
 > ## 2.0.1
 > * Fixed issue with playing multiple maps in a row

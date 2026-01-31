@@ -177,3 +177,11 @@ Currently the entire game needs to be restarted to play a second map. This can b
 ### Practice Mode
 To make demonstrating the game easier, practice mode will be useful to have. This can be done by having a map that effectively proceduraly generates
 a randomised map until the player exits.
+
+### Changes during implementation
+There was some attempt to make the orb tweening smoother as it was very jittery. It still has a minor jitter when the beat increments, but it is much
+less noticable now. The changes made were giving extra move time, using parallel and using out_in easing.
+
+There were no changes to the practice mode plans.
+
+The main menu has now been updated to have a sub menu to choose between normal play or practice mode.

@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://cb4vh6h8yu5qv"]
+
+[ext_resource type="Script" uid="uid://cweon20f5p2ur" path="res://scripts/pm_map_loader.gd" id="1_fuoyr"]
+[ext_resource type="PackedScene" uid="uid://c7pahg8q3dv4l" path="res://prefabs/player.tscn" id="2_bvv0s"]
+[ext_resource type="Script" uid="uid://dmal7l8xxf4ns" path="res://scripts/pm_bpm_timer.gd" id="3_fuoyr"]
+[ext_resource type="Script" uid="uid://c4q6pqgmhshj5" path="res://scripts/pm_orb_creator.gd" id="4_r85td"]
+[ext_resource type="Script" uid="uid://dkx8pwg5ctyup" path="res://scripts/exit_pm.gd" id="5_r85td"]
+
+[node name="Practice Mode" type="Node2D"]
+script = ExtResource("1_fuoyr")
+
+[node name="Game Camera" type="Camera2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("2_bvv0s")]
+scale = Vector2(0.55, 0.55)
+
+[node name="Spawn BPM Timer" type="Timer" parent="."]
+autostart = true
+script = ExtResource("3_fuoyr")
+
+[node name="Center" type="Marker2D" parent="."]
+
+[node name="Orb Creator" type="Node2D" parent="Center" node_paths=PackedStringArray("orbs")]
+position = Vector2(324, 0)
+script = ExtResource("4_r85td")
+orbs = NodePath("../../Orbs")
+
+[node name="Orbs" type="Node2D" parent="."]
+
+[node name="Exit Text" type="Label" parent="."]
+offset_left = -559.0
+offset_top = 281.0
+offset_right = -473.0
+offset_bottom = 304.0
+text = "'Esc' to exit"
+script = ExtResource("5_r85td")
+
+[connection signal="timeout" from="Spawn BPM Timer" to="Spawn BPM Timer" method="_on_timeout"]
+[connection signal="timeout" from="Spawn BPM Timer" to="Center/Orb Creator" method="_create_timer_out"]

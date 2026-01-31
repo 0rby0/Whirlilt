@@ -4,7 +4,7 @@ var selected = 0
 
 # Buttons
 func _play_pressed():
-	get_tree().change_scene_to_file("res://scenes/map_menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/play_menu.tscn")
 
 func _create_pressed():
 	get_tree().change_scene_to_file("res://scenes/map_maker.tscn")
@@ -56,7 +56,7 @@ func _physics_process(_delta):
 	
 	if Input.is_action_pressed("Accept"):
 		match selected:
-			1: get_tree().change_scene_to_file("res://scenes/map_menu.tscn")
+			1: get_tree().change_scene_to_file("res://scenes/play_menu.tscn")
 			2: get_tree().change_scene_to_file("res://scenes/map_maker.tscn")
 			3: get_tree().quit()
 			4: get_tree().change_scene_to_file("res://scenes/settings.tscn")

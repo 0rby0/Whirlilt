@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://4irty0w86h6b"]
+
+[ext_resource type="Script" uid="uid://ciebyfovi6yf" path="res://scripts/play_menu.gd" id="1_ixut7"]
+[ext_resource type="PackedScene" uid="uid://cfsqgvka43vlf" path="res://prefabs/menu_player.tscn" id="2_md3iu"]
+
+[node name="Main Menu" type="Node2D"]
+script = ExtResource("1_ixut7")
+
+[node name="Menu Player" parent="." instance=ExtResource("2_md3iu")]
+scale = Vector2(0.55, 0.55)
+
+[node name="Practice Button" type="Button" parent="."]
+offset_left = 82.0
+offset_top = -94.0
+offset_right = 186.0
+offset_bottom = -56.0
+text = "Practice"
+
+[node name="Collider" type="Area2D" parent="Practice Button"]
+
+[node name="Collider Shape" type="CollisionPolygon2D" parent="Practice Button/Collider"]
+polygon = PackedVector2Array(-46, 11, -81, 6, -79, -40, -6, -10, 29, 44, 30, 130, -2, 118, 1, 72)
+
+[node name="Exit Button" type="Button" parent="."]
+offset_left = -54.0
+offset_top = 100.0
+offset_right = 52.0
+offset_bottom = 140.0
+text = "Back"
+
+[node name="Collider" type="Area2D" parent="Exit Button"]
+
+[node name="Collider Shape" type="CollisionPolygon2D" parent="Exit Button/Collider"]
+polygon = PackedVector2Array(25, -41, -22, -77, -59, -61, 17, 6, 101, 4, 165, -62, 120, -76, 95, -39)
+
+[node name="Normal Button" type="Button" parent="."]
+offset_left = -183.0
+offset_top = -97.0
+offset_right = -86.0
+offset_bottom = -60.0
+text = "Map"
+
+[node name="Collider" type="Area2D" parent="Normal Button"]
+
+[node name="Collider Shape" type="CollisionPolygon2D" parent="Normal Button/Collider"]
+polygon = PackedVector2Array(122, -18, 181, -39, 181, 9, 152, 9, 100, 72, 105, 116, 71, 132, 72, 65)
+
+[node name="Camera" type="Camera2D" parent="."]
+
+[connection signal="pressed" from="Practice Button" to="." method="_practice_pressed"]
+[connection signal="area_entered" from="Practice Button/Collider" to="." method="_practice_hovered"]
+[connection signal="pressed" from="Exit Button" to="." method="_exit_pressed"]
+[connection signal="area_entered" from="Exit Button/Collider" to="." method="_exit_hovered"]
+[connection signal="pressed" from="Normal Button" to="." method="_normal_pressed"]
+[connection signal="area_entered" from="Normal Button/Collider" to="." method="_normal_hovered"]
