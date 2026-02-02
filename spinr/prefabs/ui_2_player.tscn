@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfsqgvka43vlf"]
+
+[ext_resource type="PackedScene" uid="uid://d2astr3heckws" path="res://prefabs/g_2_player_square.tscn" id="1_8khql"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_0jy8d"]
+
+[node name="Menu Player" type="Node2D"]
+
+[node name="Track Outer" type="MeshInstance2D" parent="."]
+scale = Vector2(372.547, 372.547)
+mesh = SubResource("SphereMesh_0jy8d")
+
+[node name="Track Inner" type="MeshInstance2D" parent="Track Outer"]
+modulate = Color(0.298039, 0.298039, 0.298039, 1)
+scale = Vector2(0.973708, 0.973708)
+mesh = SubResource("SphereMesh_0jy8d")
+
+[node name="player_square" parent="." instance=ExtResource("1_8khql")]

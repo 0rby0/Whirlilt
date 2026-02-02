@@ -1,5 +1,5 @@
 # SpinR Development Document
-#### Last Updated: 26/01/2026 | First Created: 09/01/2026
+#### Last Updated: 02/02/2026 | First Created: 09/01/2026
 
 ## Notes
 * All dates will be written in the format dd/mm/yyyy
@@ -185,3 +185,46 @@ less noticable now. The changes made were giving extra move time, using parallel
 There were no changes to the practice mode plans.
 
 The main menu has now been updated to have a sub menu to choose between normal play or practice mode.
+
+### Code cleanup, Name checking, and File system organisation
+The file system, nodes, and code need a bit of a cleanup for the sake of clarity and avoiding future issues.
+
+### What was changed
+
+#### File system
+* Removed default icon.svg
+* Files will be named with the following structure: Usage code + Level + Function
+	* Current usage codes: g (global), mm (map maker), pm (practice mode), ui (user interface e.g. main menu), gp (gameplay e.g. map player)
+	* Level codes: 0 (None e.g. global variables file), 1 (Primary file e.g. main scene code), 2 (assisting functions e.g. core scene function
+	seperated out), t (smallest files e.g. temporary assets or buttons)
+
+#### Code
+* Fixed broken file refrences
+* Change all inputs to variable (e.g. numbers, text, etc.)
+* Added reset to accuracy in map completion code
+* Corrected all variable names to be camelCase
+
+#### Nodes
+* Ensured all nodes use non-default names
+
+### Combo / Score System
+Score will be a global variable that increases whenever an orb is hit. The combo multiplier will be a number which the score increase is multiplied
+by before being added. The base score increase will be 10. The base multiplier will be 1x. Every time the player successfully hits multiple orbs in a
+row, then score multiplier will increase by 0.5. If the player misses an orb, then the score multiplier will be reset to 1x. This will be as simple
+as adding two new global variables which can be adjusted alongside the accuracy.
+
+For Example:
+The player starts the map with a score of 0 and multiplier of 1x.
+The player successfully hits the first orb, gaining 10 score.
+The player then hits the second orb, increasing their score to 20 and the multiplier to 1.5x.
+The player then hits a third orb, their score is now 35 and the multiplier is 2x.
+The player misses the fourth orb, the score is still 35, but the multiplier is back to 1x.
+
+### Changes in Implementation
+Created an additional conscOrbs variable to check if the multiplier should be increasing.
+
+Created a new script to update two labels to show the player their score and multiplier.
+
+### Automatically Creating Map Folder
+When the game is loaded without the folder path being manually created, the game ceases to function properly. Therefore an automatic check to create
+the folder when the main menu is opened will be neccesary.

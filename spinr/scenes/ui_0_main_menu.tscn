@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://d3giewil23og2"]
+
+[ext_resource type="Script" uid="uid://ykky2gkdy74s" path="res://scripts/ui_1_menu_select.gd" id="1_ekxnf"]
+[ext_resource type="PackedScene" uid="uid://cfsqgvka43vlf" path="res://prefabs/ui_2_player.tscn" id="1_l6cm7"]
+
+[node name="Main Menu" type="Node2D" unique_id=588672420]
+script = ExtResource("1_ekxnf")
+
+[node name="Menu Player" parent="." unique_id=2135518646 instance=ExtResource("1_l6cm7")]
+scale = Vector2(0.55, 0.55)
+
+[node name="Play Button" type="Button" parent="." unique_id=988500578]
+offset_left = -69.0
+offset_top = -151.0
+offset_right = 67.0
+offset_bottom = -101.0
+text = "Play"
+
+[node name="Collider" type="Area2D" parent="Play Button" unique_id=567422286]
+
+[node name="Collider Shape" type="CollisionPolygon2D" parent="Play Button/Collider" unique_id=1587807688]
+polygon = PackedVector2Array(36, 44, -17, 83, 12, 108, 45, 96, 90, 93, 124, 101, 154, 82, 105, 43)
+
+[node name="Create Button" type="Button" parent="." unique_id=1043807033]
+offset_left = 96.0
+offset_top = -20.0
+offset_right = 200.0
+offset_bottom = 18.0
+text = "Create"
+
+[node name="Collider" type="Area2D" parent="Create Button" unique_id=311068048]
+
+[node name="Collider Shape" type="CollisionPolygon2D" parent="Create Button/Collider" unique_id=1544717669]
+polygon = PackedVector2Array(-36, -8, -47, -24, -8, -49, 7, -15, 10, 45, -5, 80, -42, 53, -34, 39)
+
+[node name="Exit Button" type="Button" parent="." unique_id=265143201]
+offset_left = -54.0
+offset_top = 100.0
+offset_right = 52.0
+offset_bottom = 140.0
+text = "Exit"
+
+[node name="Collider" type="Area2D" parent="Exit Button" unique_id=881850666]
+
+[node name="Collider Shape" type="CollisionPolygon2D" parent="Exit Button/Collider" unique_id=1666318377]
+polygon = PackedVector2Array(25, -41, -2, -54, -31, -24, 17, 6, 101, 4, 144, -37, 107, -63, 95, -39)
+
+[node name="Settings Button" type="Button" parent="." unique_id=500076860]
+offset_left = -198.0
+offset_top = -17.0
+offset_right = -101.0
+offset_bottom = 20.0
+text = "Settings"
+
+[node name="Collider" type="Area2D" parent="Settings Button" unique_id=125334075]
+
+[node name="Collider Shape" type="CollisionPolygon2D" parent="Settings Button/Collider" unique_id=1215924151]
+polygon = PackedVector2Array(97, -21, 111, -49, 139, -24, 124, 9, 123, 40, 140, 62, 114, 89, 92, 41)
+
+[node name="Camera" type="Camera2D" parent="." unique_id=573341475]
+
+[connection signal="area_entered" from="Play Button/Collider" to="." method="_play_hover"]
+[connection signal="area_entered" from="Create Button/Collider" to="." method="_create_hover"]
+[connection signal="area_entered" from="Exit Button/Collider" to="." method="_exit_hover"]
+[connection signal="area_entered" from="Settings Button/Collider" to="." method="_settings_hover"]
