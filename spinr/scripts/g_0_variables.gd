@@ -35,3 +35,7 @@ var missedOrbs = 0.0
 var scoreMult = 1.0
 var score = 0
 var conscOrbs = 0
+
+func _ready():
+	var inputSettings = ConfigFileHandler.load_input_settings()
+	inputType = inputSettings.inputMethod

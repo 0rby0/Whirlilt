@@ -1,5 +1,5 @@
 Z# SpinR Design Document
-#### Last Updated: 02/02/2026 | First Created: 26/01/2026
+#### Last Updated: 04/02/2026 | First Created: 26/01/2026
 
 ## Notes
 * All dates will be written in the format dd/mm/yyyy
@@ -10,12 +10,21 @@ Z# SpinR Design Document
 	* Y represents any minor adjustments or fixes
 * Any time a version number is refrences with only two points, assume it is excluding the first version number.
 
-> ## 2.0.3
+> ## 2.2.1
+> * Fixed version numbering
+> * Updated main menu and gamemode selection menu
+> * Fixed error with settings menu and map selector crashing game
+> * Added more controller support
+> * Settings are now saved when exiting the game
+> * Practice mode and map maker values are no longer saved when exiting each respective mode
+> * Map maker detail editor now checks that all information is filled out before saving
+
+> ## 2.2.0
 > * Code and file system has been cleaned up
 > * Added score system
 > * Main Menu now automatically creates map folder when opened if it doesn't exist
 
-> ## 2.0.2
+> ## 2.1.0
 > * Adjusted orb movement to decrease jittering
 > * Added practice mode
 > * Adjusted main menu to accommodate practice mode

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dg6oqm3xm3q3f" path="res://scripts/ui_2_read_map_folder.gd" id="1_0u4ms"]
 [ext_resource type="Script" uid="uid://dygaq2ymouo5e" path="res://scripts/g_2_back_button_only.gd" id="2_laxi0"]
+[ext_resource type="PackedScene" uid="uid://b0vw04a3phw8s" path="res://prefabs/ui_1_cursor.tscn" id="3_d5wy3"]
 
 [node name="Menu" type="Control" unique_id=829669371]
 layout_mode = 3
@@ -40,5 +41,7 @@ offset_right = 50.0
 offset_bottom = 42.0
 text = "<"
 script = ExtResource("2_laxi0")
+
+[node name="Cursor" parent="Menu Group" unique_id=1103410415 instance=ExtResource("3_d5wy3")]
 
 [connection signal="pressed" from="Menu Group/Back" to="Menu Group/Back" method="_on_pressed_MMM"]

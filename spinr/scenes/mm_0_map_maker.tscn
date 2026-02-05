@@ -12,8 +12,27 @@
 [ext_resource type="Script" uid="uid://bl7mpg4vneol5" path="res://scripts/mm_2_toggle_adder_menu.gd" id="7_kjevn"]
 [ext_resource type="Script" uid="uid://b6vflyjyyex6o" path="res://scripts/mm_2_exporter.gd" id="7_l68bq"]
 [ext_resource type="Script" uid="uid://85dkdtaow5i1" path="res://scripts/mm_2_play_map.gd" id="8_vxeng"]
+[ext_resource type="PackedScene" uid="uid://b0vw04a3phw8s" path="res://prefabs/ui_1_cursor.tscn" id="13_alo8k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_alo8k"]
+size = Vector2(284, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vfai"]
+size = Vector2(28, 34.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y3atr"]
+size = Vector2(25, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_so5i1"]
+size = Vector2(250, 31)
 
 [sub_resource type="SphereMesh" id="SphereMesh_7mntf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_alo8k"]
+radius = 70.00714
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_72ohp"]
+size = Vector2(39, 42)
 
 [node name="Map Maker" type="Control" unique_id=1466610112]
 layout_mode = 3
@@ -49,6 +68,12 @@ offset_top = -5.0
 offset_right = 365.0
 offset_bottom = 31.0
 
+[node name="Hitbox" type="Area2D" parent="Detail Edit/Menu Background/Title Text/Title Input" unique_id=1560563576]
+
+[node name="Hitbox Shape" type="CollisionShape2D" parent="Detail Edit/Menu Background/Title Text/Title Input/Hitbox" unique_id=214826407]
+position = Vector2(142, 18)
+shape = SubResource("RectangleShape2D_alo8k")
+
 [node name="BPM Text" type="Label" parent="Detail Edit/Menu Background" unique_id=21928936]
 layout_mode = 0
 offset_left = 48.0
@@ -65,6 +90,12 @@ offset_right = 60.0
 offset_bottom = 57.0
 text = "+"
 
+[node name="Hitbox" type="Area2D" parent="Detail Edit/Menu Background/BPM Text/BPM Up" unique_id=743925920]
+
+[node name="Hitbox Shape" type="CollisionShape2D" parent="Detail Edit/Menu Background/BPM Text/BPM Up/Hitbox" unique_id=967390715]
+position = Vector2(13, 15.75)
+shape = SubResource("RectangleShape2D_1vfai")
+
 [node name="BPM Down" type="Button" parent="Detail Edit/Menu Background/BPM Text" unique_id=1964272478]
 layout_mode = 0
 offset_left = -19.0
@@ -72,6 +103,12 @@ offset_top = 27.0
 offset_right = -5.0
 offset_bottom = 58.0
 text = "-"
+
+[node name="Hitbox" type="Area2D" parent="Detail Edit/Menu Background/BPM Text/BPM Down" unique_id=1093444626]
+
+[node name="Hitbox Shape" type="CollisionShape2D" parent="Detail Edit/Menu Background/BPM Text/BPM Down/Hitbox" unique_id=424043921]
+position = Vector2(2.5, 14.5)
+shape = SubResource("RectangleShape2D_y3atr")
 
 [node name="BPM Display" type="TextEdit" parent="Detail Edit/Menu Background/BPM Text" unique_id=1434302572]
 layout_mode = 0
@@ -100,6 +137,12 @@ text = "Select"
 text_overrun_behavior = 3
 script = ExtResource("1_adfud")
 
+[node name="Hitbox" type="Area2D" parent="Detail Edit/Menu Background/Music File Text/Select Button" unique_id=715692644]
+
+[node name="Hitbox Shape" type="CollisionShape2D" parent="Detail Edit/Menu Background/Music File Text/Select Button/Hitbox" unique_id=771947608]
+position = Vector2(125, 15.5)
+shape = SubResource("RectangleShape2D_so5i1")
+
 [node name="FileDialog" type="FileDialog" parent="Detail Edit/Menu Background/Music File Text" unique_id=708086848]
 title = "Open a File"
 initial_position = 1
@@ -110,17 +153,18 @@ filters = PackedStringArray("*.mp3")
 
 [node name="Save" type="Button" parent="Detail Edit/Menu Background" unique_id=270577801]
 layout_mode = 0
-offset_left = 344.0
+offset_left = 312.0
 offset_top = 187.0
 offset_right = 397.0
 offset_bottom = 218.0
+pivot_offset = Vector2(53, 31)
 text = "Done"
 
 [node name="Load" type="Button" parent="Detail Edit/Menu Background" unique_id=2140361597]
 layout_mode = 0
 offset_left = 7.0
 offset_top = 185.0
-offset_right = 91.0
+offset_right = 118.0
 offset_bottom = 216.0
 text = "Load Map"
 script = ExtResource("4_arqoa")
@@ -133,6 +177,8 @@ offset_right = 37.0
 offset_bottom = 35.0
 text = "<"
 script = ExtResource("5_gnmvy")
+
+[node name="Cursor" parent="Detail Edit" unique_id=1103410415 instance=ExtResource("13_alo8k")]
 
 [node name="Editor" type="CanvasLayer" parent="." unique_id=342860297]
 follow_viewport_enabled = true
@@ -159,14 +205,20 @@ scale = Vector2(0.973708, 0.973708)
 mesh = SubResource("SphereMesh_7mntf")
 
 [node name="Play Button" type="Button" parent="Editor" unique_id=255309435]
-offset_left = 562.0
-offset_top = 287.0
-offset_right = 599.0
-offset_bottom = 365.0
+offset_left = 536.0
+offset_top = 272.0
+offset_right = 573.0
+offset_bottom = 350.0
 theme_override_font_sizes/font_size = 51
 text = ">"
 flat = true
 script = ExtResource("8_vxeng")
+
+[node name="Hitbox" type="Area2D" parent="Editor/Play Button" unique_id=1994311929]
+
+[node name="Hitbox Shape" type="CollisionShape2D" parent="Editor/Play Button/Hitbox" unique_id=1416006725]
+position = Vector2(15, 41)
+shape = SubResource("CircleShape2D_alo8k")
 
 [node name="Hide While Playing" type="Control" parent="Editor" unique_id=547227930]
 layout_mode = 3
@@ -283,12 +335,26 @@ offset_right = 99.0
 offset_bottom = 199.0
 text = "Create"
 
+[node name="Hitbox" type="Area2D" parent="Editor/Hide While Playing/Add Orb Button" unique_id=1199559161]
+
+[node name="Hitbox Shape" type="CollisionShape2D" parent="Editor/Hide While Playing/Add Orb Button/Hitbox" unique_id=1192284557]
+position = Vector2(19.5, 21)
+shape = SubResource("RectangleShape2D_72ohp")
+
+[node name="Cursor" parent="Editor" unique_id=369504493 instance=ExtResource("13_alo8k")]
+
 [node name="Orbs" type="Node2D" parent="." unique_id=804203210]
 position = Vector2(551, 312)
 
 [connection signal="pressed" from="Detail Edit/Menu Background/BPM Text/BPM Up" to="Detail Edit/Menu Background/BPM Text/BPM Display" method="bpm_up"]
+[connection signal="area_entered" from="Detail Edit/Menu Background/BPM Text/BPM Up/Hitbox" to="Detail Edit/Menu Background/BPM Text/BPM Display" method="_on_hitbox_area_entered"]
+[connection signal="area_exited" from="Detail Edit/Menu Background/BPM Text/BPM Up/Hitbox" to="Detail Edit/Menu Background/BPM Text/BPM Display" method="_bpm_up_hover_off"]
 [connection signal="pressed" from="Detail Edit/Menu Background/BPM Text/BPM Down" to="Detail Edit/Menu Background/BPM Text/BPM Display" method="bpm_down"]
+[connection signal="area_entered" from="Detail Edit/Menu Background/BPM Text/BPM Down/Hitbox" to="Detail Edit/Menu Background/BPM Text/BPM Display" method="_bpm_down_hover_over"]
+[connection signal="area_exited" from="Detail Edit/Menu Background/BPM Text/BPM Down/Hitbox" to="Detail Edit/Menu Background/BPM Text/BPM Display" method="_bpm_down_hover_off"]
 [connection signal="pressed" from="Detail Edit/Menu Background/Music File Text/Select Button" to="Detail Edit/Menu Background/Music File Text/Select Button" method="_on_pressed"]
+[connection signal="area_entered" from="Detail Edit/Menu Background/Music File Text/Select Button/Hitbox" to="Detail Edit/Menu Background/Music File Text/Select Button" method="_hover_over"]
+[connection signal="area_exited" from="Detail Edit/Menu Background/Music File Text/Select Button/Hitbox" to="Detail Edit/Menu Background/Music File Text/Select Button" method="_hover_off"]
 [connection signal="file_selected" from="Detail Edit/Menu Background/Music File Text/FileDialog" to="Detail Edit/Menu Background/Music File Text/Select Button" method="audio_file_selected"]
 [connection signal="pressed" from="Detail Edit/Menu Background/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="Detail Edit/Menu Background/Load" to="Detail Edit/Menu Background/Load" method="_on_pressed"]
@@ -296,8 +362,12 @@ position = Vector2(551, 312)
 [connection signal="timeout" from="Editor/Beat Timer" to="Editor/Play Button" method="beat_timer_out"]
 [connection signal="finished" from="Editor/Audio File Player" to="Editor/Play Button" method="_audio_out"]
 [connection signal="pressed" from="Editor/Play Button" to="Editor/Play Button" method="_on_pressed"]
+[connection signal="area_entered" from="Editor/Play Button/Hitbox" to="Editor/Play Button" method="_hover_over"]
+[connection signal="area_exited" from="Editor/Play Button/Hitbox" to="Editor/Play Button" method="_hover_off"]
 [connection signal="pressed" from="Editor/Hide While Playing/Export Button" to="Editor/Hide While Playing/Export Button" method="_on_pressed"]
 [connection signal="pressed" from="Editor/Hide While Playing/Settings" to="." method="_open_menu"]
 [connection signal="value_changed" from="Editor/Hide While Playing/Timeline" to="Editor/Hide While Playing/Timeline" method="current_beat_changed"]
 [connection signal="pressed" from="Editor/Hide While Playing/Add Orb Button" to="Editor/Hide While Playing/Add Orb Button" method="_on_pressed"]
 [connection signal="pressed" from="Editor/Hide While Playing/Add Orb Button/Background/Create Button" to="Editor/Hide While Playing/Add Orb Button" method="create_button_pressed"]
+[connection signal="area_entered" from="Editor/Hide While Playing/Add Orb Button/Hitbox" to="Editor/Hide While Playing/Add Orb Button" method="_cursor_over"]
+[connection signal="area_exited" from="Editor/Hide While Playing/Add Orb Button/Hitbox" to="Editor/Hide While Playing/Add Orb Button" method="_cursor_off"]

@@ -13,6 +13,10 @@ var mapSelector = "res://scenes/ui_0_map_selection.tscn"
 # Select Input
 var select = "Accept"
 
+# Colours
+var yellow = "#bdc200"
+var grey = "#808080"
+
 # Functions ----------------------------------------------------------------------------------------
 
 func _normal_hovered(_area):
@@ -27,19 +31,17 @@ func _practice_hovered(_area):
 func _physics_process(_delta):
 	match selectedButton:
 		1: 
-			$"Practice Button".flat = true
-			$"Exit Button".flat = false
-			$"Normal Button".flat = false
-			
+			$Practice.color = yellow
+			$Back.color = grey
+			$Map.color = grey
 		2:
-			$"Practice Button".flat = false
-			$"Exit Button".flat = true
-			$"Normal Button".flat = false
-			
+			$Practice.color = grey
+			$Back.color = yellow
+			$Map.color = grey
 		3:
-			$"Practice Button".flat = false
-			$"Exit Button".flat = false
-			$"Normal Button".flat = true
+			$Practice.color = grey
+			$Back.color = grey
+			$Map.color = yellow
 		
 	if Input.is_action_just_pressed(select):
 		match selectedButton:

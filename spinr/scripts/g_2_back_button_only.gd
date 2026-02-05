@@ -10,6 +10,12 @@ var back = "Back"
 
 # Functions ----------------------------------------------------------------------------------------
 
+func _ready():
+	if global.inputType == "controller":
+		self.visible = false
+	else:
+		self.visible = true
+
 func _physics_process(_delta):
 	if Input.is_action_pressed(back):
 		get_tree().change_scene_to_file(mainMenu)

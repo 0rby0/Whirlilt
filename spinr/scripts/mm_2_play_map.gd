@@ -8,6 +8,8 @@ extends Button
 @onready var timer = $"../Beat Timer"
 @onready var hideables = $"../Hide While Playing"
 
+var hover = false
+
 # Functions ----------------------------------------------------------------------------------------
 
 func _on_pressed():
@@ -23,3 +25,13 @@ func beat_timer_out():
 func _audio_out():
 	timer.stop()
 	hideables.visible = true
+
+func _hover_over(area: Area2D):
+	hover = true
+
+func _hover_off(area: Area2D):
+	hover = false
+
+func _physics_process(_delta):
+	if Input.is_action_just_pressed("Accept") and hover == true:
+		_on_pressed()

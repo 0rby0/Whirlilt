@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d083b1y75tspf" path="res://scripts/mm_2_read_map_folder.gd" id="1_my4iu"]
 [ext_resource type="Script" uid="uid://mw152qweb2w3" path="res://scripts/mm_2_back_to_maker.gd" id="2_my4iu"]
+[ext_resource type="PackedScene" uid="uid://b0vw04a3phw8s" path="res://prefabs/ui_1_cursor.tscn" id="3_5wsoc"]
 
 [node name="Menu" type="Control" unique_id=2084466692]
 layout_mode = 3
@@ -33,8 +34,13 @@ theme_override_constants/separation = 150
 script = ExtResource("1_my4iu")
 
 [node name="Back" type="Button" parent="Map Select Group" unique_id=1447009306]
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 71.0
+offset_top = 42.0
+offset_right = 133.0
+offset_bottom = 76.0
+text = "Back"
 script = ExtResource("2_my4iu")
+
+[node name="Cursor" parent="Map Select Group" unique_id=1103410415 instance=ExtResource("3_5wsoc")]
 
 [connection signal="pressed" from="Map Select Group/Back" to="Map Select Group/Back" method="_on_pressed"]

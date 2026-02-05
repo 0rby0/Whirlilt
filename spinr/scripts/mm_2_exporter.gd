@@ -6,8 +6,8 @@ extends Button
 var userPath = OS.get_data_dir()
 
 # File Names
-var audioFileName = "map.json"
-var mapFileName = "audio.mp3"
+var audioFileName = "audio.mp3"
+var mapFileName = "map.json"
 
 # Scenes
 var mainMenu = "res://scenes/ui_0_main_menu.tscn"
@@ -56,4 +56,7 @@ func _on_pressed():
 		writer.close()
 		
 		get_tree().change_scene_to_file(mainMenu)
-	
+
+func _physics_process(_delta):
+	if Input.is_action_just_pressed("Load") and global.editing == true:
+		_on_pressed()

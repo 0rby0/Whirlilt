@@ -17,10 +17,22 @@ var select = "Accept"
 var userPath = OS.get_data_dir()
 var mapsPath = userPath + "/SpinR/"
 
+# Colours
+var yellow = "#bdc200"
+var grey = "#808080"
+
 # Functions ----------------------------------------------------------------------------------------
 
 func _ready():
 	DirAccess.make_dir_recursive_absolute(mapsPath)
+	global.focused = false
+	global.mmTitle
+	global.mmBPM
+	global.mmAudioFile
+	global.mmTrackLengthSec
+	global.mmMapSelect
+	global.editing = false
+	global.mmMap = []
 
 func _play_hover(_area):
 	selectedButton = 1
@@ -37,28 +49,27 @@ func _settings_hover(_area):
 func _physics_process(_delta):
 	match selectedButton:
 		1: 
-			$"Play Button".flat = true
-			$"Create Button".flat = false
-			$"Exit Button".flat = false
-			$"Settings Button".flat = false
-			
+			$Play.color = yellow
+			$Create.color = grey
+			$Exit.color = grey
+			$Settings.color = grey
 		2:
-			$"Play Button".flat = false
-			$"Create Button".flat = true
-			$"Exit Button".flat = false
-			$"Settings Button".flat = false
+			$Play.color = grey
+			$Create.color = yellow
+			$Exit.color = grey
+			$Settings.color = grey
 			
 		3:
-			$"Play Button".flat = false
-			$"Create Button".flat = false
-			$"Exit Button".flat = true
-			$"Settings Button".flat = false
+			$Play.color = grey
+			$Create.color = grey
+			$Exit.color = yellow
+			$Settings.color = grey
 			
 		4:
-			$"Play Button".flat = false
-			$"Create Button".flat = false
-			$"Exit Button".flat = false
-			$"Settings Button".flat = true
+			$Play.color = grey
+			$Create.color = grey
+			$Exit.color = grey
+			$Settings.color = yellow
 		
 	if Input.is_action_just_pressed(select):
 		match selectedButton:

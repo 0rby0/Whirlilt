@@ -1,5 +1,5 @@
 # SpinR Development Document
-#### Last Updated: 02/02/2026 | First Created: 09/01/2026
+#### Last Updated: 05/02/2026 | First Created: 09/01/2026
 
 ## Notes
 * All dates will be written in the format dd/mm/yyyy
@@ -228,3 +228,33 @@ Created a new script to update two labels to show the player their score and mul
 ### Automatically Creating Map Folder
 When the game is loaded without the folder path being manually created, the game ceases to function properly. Therefore an automatic check to create
 the folder when the main menu is opened will be neccesary.
+
+### Checks and Fixes
+The Following list is a collection of bugs, improvements or other issues with the game currently. This list is made up of points found through my own
+experimentation and also through user testing and attempting to break the game:
+
+* Changing the input type in the settings crashes the game.
+* The create menu map detail editor can be exited without filling out all the fields.
+* The exit button for the creator map loader is mostly off the screen.
+* The text telling the user how to exit practice mode should update when using controller.
+* The map selection menu and creator are not usable with controller, requiring a mouse to use.
+* The score doesn't reset after exiting practice mode.
+* There is no indication of where the main menu buttons start and end.
+* Loading a map crashes the game.
+* Settings aren't saved when reloading the game.
+* After exporting a map in the map maker, opening the menu returns the user to the just exported map, not the details menu.
+
+### Changes and Fixes
+* The refrence path for the colour square that it being changed in the settings menu has been fixed.
+* Map maker map detail edit now checks if name and file have been set before running save function.
+* The map maker map menu back button now has text and is in the correct place.
+* Exiting practice mode now sets score to 0 and score mutliplier to 1.0.
+* The main menu buttons have been replaced with polygons which change colour depending on which is being hovered over. The collision areas have also
+been expanded to fill the entire area from centre to corners.
+* The main menu player spinner has been updated to a compass arrow.
+* The practice mode exit text now checks what input method is being used and updates accordingly.
+* The map selection menu, map maker menu and settings now use a controller cursor when controller is selected input method.
+* There are also some controller exclusive keybinds in the map maker, map maker still needs some work for full controller support.
+* .json and .mp3 filenames have been corrected in export code.
+* Settings are now saved and loaded to/from a settings.ini file in the same folder as the users maps.
+* Opening the main menu automatically resets any map maker settings e.g. editing, focused, title, etc.

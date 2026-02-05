@@ -4,7 +4,6 @@ extends Button
 
 # File Path
 var userPath = OS.get_data_dir()
-var filePath = userPath + "/SpinR/" + self.text +".spr"
 
 # File Reader
 var reader = ZIPReader.new()
@@ -15,9 +14,12 @@ var mapMaker = "res://scenes/mm_0_map_maker.tscn"
 # Map File Name
 var mapFileName = "map.json"
 
-# Functions ----------------------------------------------------------------------------------------
+var hovered = false
 
+# Functions ----------------------------------------------------------------------------------------
 func _on_pressed():
+	var filePath = userPath + "/SpinR/" + self.text +".spr"
+	
 	reader.open(filePath)
 	
 	# The unproccessed and unusable contents of the file
@@ -43,3 +45,21 @@ func _on_pressed():
 	
 	# Return to Map Maker
 	get_tree().change_scene_to_file(mapMaker)
+
+# Cursor Function
+func _physics_process(_delta):
+	if hovered:
+		self.disabled = true
+	else:
+		self.disabled = false
+	
+	if Input.is_action_just_pressed("Accept"):
+		_on_pressed()
+
+func _cursor_over(area: Area2D):
+	if area.is_in_group("cursor"):
+		hovered = true
+
+func _cursor_off(area: Area2D):
+	if area.is_in_group("cursor"):
+			hovered = false
