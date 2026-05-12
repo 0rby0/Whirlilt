@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cb5prqga0yyvs"]
+
+[ext_resource type="Script" uid="uid://b6s7tfn4mwjgh" path="res://Objects/Global/Player Square/Scripts/Player Rotation.gd" id="1_frnbx"]
+[ext_resource type="Script" uid="uid://cbyiqvdmp0ld6" path="res://Objects/Global/Player Square/Scripts/Orb Collision.gd" id="2_ne8m4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mjwti"]
+size = Vector2(27.000011, 42.666595)
+
+[node name="player_square" type="Node2D" unique_id=57280534]
+
+[node name="Pivot Point" type="Marker2D" parent="." unique_id=416542717]
+script = ExtResource("1_frnbx")
+
+[node name="Graphic" type="Polygon2D" parent="Pivot Point" unique_id=829457183]
+polygon = PackedVector2Array(0, -10, 196, 0, 0, 10)
+
+[node name="Hitbox" type="Area2D" parent="Pivot Point/Graphic" unique_id=127249815]
+position = Vector2(196, -40)
+rotation = 1.5708
+scale = Vector2(1, 0.75)
+script = ExtResource("2_ne8m4")
+
+[node name="Hitbox Shape" type="CollisionShape2D" parent="Pivot Point/Graphic/Hitbox" unique_id=1125052892]
+position = Vector2(40.00002, 6.6664805)
+shape = SubResource("RectangleShape2D_mjwti")
+
+[connection signal="body_entered" from="Pivot Point/Graphic/Hitbox" to="Pivot Point/Graphic/Hitbox" method="_on_collision"]
