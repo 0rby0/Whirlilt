@@ -17,9 +17,6 @@ var mapsPath : String = userPath + "/SpinR/"
 func _ready() -> void:
 	DirAccess.make_dir_recursive_absolute(mapsPath)
 	
-	for button in buttons:
-		pass
-	
 	global.focused = false
 	global.mmTitle = null
 	global.mmBPM = null
@@ -34,6 +31,7 @@ func _input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("Accept"):
 		if selectedOption:
-			var script = selectedOption.executeScript.new()
-			if script.has_method("execute"):
-				script.execute(get_tree())
+			if selectedOption.executeScript:
+				var script = selectedOption.executeScript.new()
+				if script.has_method("execute"):
+					script.execute(get_tree())

@@ -1,4 +1,4 @@
 extends Node
 
-func execute(root) -> void:
+func execute(_root) -> void:
 	print("Story is on the way")
