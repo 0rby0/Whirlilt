@@ -5,8 +5,8 @@ extends Button
 # Scenes
 var mainMenu = "res://Screens/Main Menu/Main Menu.tscn"
 
-# Back Button
-var back = "Back"
+# Escape Button
+var back = "Escape"
 
 # Functions ----------------------------------------------------------------------------------------
 
