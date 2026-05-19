@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://4irty0w86h6b"]
+
+[ext_resource type="Script" uid="uid://ciebyfovi6yf" path="res://Menus/Arcade Select/Scripts/Arcade Select.gd" id="1_ixut7"]
+[ext_resource type="PackedScene" uid="uid://cb5prqga0yyvs" path="res://Menus/Main Menu/Player/Player.tscn" id="2_md3iu"]
+
+[node name="Main Menu" type="Node2D" unique_id=1253330758]
+script = ExtResource("1_ixut7")
+
+[node name="Menu Player" parent="." unique_id=60312606 instance=ExtResource("2_md3iu")]
+scale = Vector2(0.55, 0.55)
+
+[node name="Practice" type="Polygon2D" parent="." unique_id=2046371355]
+position = Vector2(-26, -123)
+color = Color(0.5019608, 0.5019608, 0.5019608, 1)
+polygon = PackedVector2Array(149, 55, 26, -4, 26, 22, 116, 79, 115, 171, 149, 189)
+
+[node name="Button Text" type="Label" parent="Practice" unique_id=61031015]
+offset_left = 80.000015
+offset_top = 24.999998
+offset_right = 142.00002
+offset_bottom = 48.0
+rotation = 0.44854963
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Practice"
+
+[node name="Collider" type="Area2D" parent="Practice" unique_id=2130569121]
+visible = false
+position = Vector2(108, 29)
+
+[node name="Collider Shape" type="CollisionPolygon2D" parent="Practice/Collider" unique_id=1032608299]
+polygon = PackedVector2Array(242, 269, -82, 94, -82, -230, 242, -230)
+
+[node name="Map" type="Polygon2D" parent="." unique_id=487893385]
+position = Vector2(-26, -123)
+color = Color(0.5019608, 0.5019608, 0.5019608, 1)
+polygon = PackedVector2Array(-93, 45, 26, -4, 26, 22, -60, 71, -63, 171, -93, 187)
+
+[node name="Button Text" type="Label" parent="Map" unique_id=2013965258]
+offset_left = -85.0
+offset_top = 46.0
+offset_right = -45.0
+offset_bottom = 69.0
+rotation = -0.32637656
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Map"
+
+[node name="Collider" type="Area2D" parent="Map" unique_id=236681367]
+visible = false
+position = Vector2(-157, 26)
+
+[node name="Collider Shape" type="CollisionPolygon2D" parent="Map/Collider" unique_id=722389002]
+polygon = PackedVector2Array(-141, -227, 183, -227, 183, 97, -141, 272)
+
+[node name="Back" type="Polygon2D" parent="." unique_id=1487474779]
+position = Vector2(-26, -123)
+color = Color(0.5019608, 0.5019608, 0.5019608, 1)
+polygon = PackedVector2Array(26, 266, -93, 187, -63, 171, 26, 223, 115, 171, 149, 189)
+
+[node name="Button Text" type="Label" parent="Back" unique_id=1167423993]
+offset_left = 9.0
+offset_top = 227.0
+offset_right = 49.0
+offset_bottom = 250.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Back"
+
+[node name="Collider" type="Area2D" parent="Back" unique_id=421962457]
+visible = false
+position = Vector2(-28, 223)
+
+[node name="Collider Shape" type="CollisionPolygon2D" parent="Back/Collider" unique_id=2000346230]
+polygon = PackedVector2Array(378, 75, 54, -100, -270, 75, -270, 224, 378, 224)
+
+[node name="Camera" type="Camera2D" parent="." unique_id=1621732601]
+
+[connection signal="area_entered" from="Practice/Collider" to="." method="_practice_hovered"]
+[connection signal="area_entered" from="Map/Collider" to="." method="_normal_hovered"]
+[connection signal="area_entered" from="Back/Collider" to="." method="_exit_hovered"]

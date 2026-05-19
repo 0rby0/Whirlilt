@@ -1,0 +1,162 @@
+[gd_scene format=3 uid="uid://csyp81y3u8k5f"]
+
+[ext_resource type="Script" uid="uid://cujwhp8ihtx0i" path="res://Menus/Settings/Scripts/Settings Select.gd" id="1_5p8wc"]
+[ext_resource type="Script" uid="uid://dygaq2ymouo5e" path="res://Global/Scripts/Back Button Only.gd" id="2_r6d6q"]
+[ext_resource type="PackedScene" uid="uid://b0vw04a3phw8s" path="res://Global/Objects/Cursor/Cursor.tscn" id="3_u1hfu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u1hfu"]
+size = Vector2(113, 113)
+
+[node name="Settings" type="Control" unique_id=994638330]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5p8wc")
+
+[node name="Settings Buttons" type="CanvasLayer" parent="." unique_id=2074160681]
+
+[node name="Back" type="Button" parent="Settings Buttons" unique_id=810790809]
+offset_left = 69.0
+offset_top = 28.0
+offset_right = 164.0
+offset_bottom = 86.0
+theme_override_font_sizes/font_size = 36
+text = "<"
+script = ExtResource("2_r6d6q")
+
+[node name="Mouse" type="ColorRect" parent="Settings Buttons" unique_id=1473878567]
+offset_left = 695.0
+offset_top = 125.0
+offset_right = 808.0
+offset_bottom = 238.0
+color = Color(0.743086, 0.762325, 3.85046e-07, 1)
+
+[node name="Icon" type="ColorRect" parent="Settings Buttons/Mouse" unique_id=914440970]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 42.0
+offset_right = 76.0
+offset_bottom = 93.0
+
+[node name="Icon 1" type="ColorRect" parent="Settings Buttons/Mouse/Icon" unique_id=438411531]
+layout_mode = 0
+offset_top = -25.0
+offset_right = 20.0
+offset_bottom = -3.0
+
+[node name="Icon 2" type="ColorRect" parent="Settings Buttons/Mouse/Icon" unique_id=523871325]
+layout_mode = 0
+offset_left = 23.0
+offset_top = -25.0
+offset_right = 43.0
+offset_bottom = -3.0
+
+[node name="Button" type="Button" parent="Settings Buttons/Mouse" unique_id=921101583]
+layout_mode = 0
+offset_right = 113.0
+offset_bottom = 113.0
+flat = true
+
+[node name="Hitbox" type="Area2D" parent="Settings Buttons/Mouse" unique_id=1167043047]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Settings Buttons/Mouse/Hitbox" unique_id=2083456730]
+position = Vector2(56.5, 56.5)
+shape = SubResource("RectangleShape2D_u1hfu")
+
+[node name="Controller" type="ColorRect" parent="Settings Buttons" unique_id=81222163]
+offset_left = 810.0
+offset_top = 125.0
+offset_right = 923.0
+offset_bottom = 238.0
+color = Color(0.501407, 0.501406, 0.501406, 1)
+
+[node name="Icon" type="ColorRect" parent="Settings Buttons/Controller" unique_id=367394127]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 37.0
+offset_right = 40.0
+offset_bottom = 69.0
+
+[node name="Icon 1" type="ColorRect" parent="Settings Buttons/Controller/Icon" unique_id=174897602]
+layout_mode = 0
+offset_left = 41.0
+offset_right = 56.0
+offset_bottom = 42.0
+
+[node name="Icon 2" type="ColorRect" parent="Settings Buttons/Controller/Icon" unique_id=515470911]
+layout_mode = 0
+offset_left = -15.0
+offset_bottom = 42.0
+
+[node name="Icon 3" type="ColorRect" parent="Settings Buttons/Controller/Icon" unique_id=1681961051]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 24.0
+offset_right = 41.0
+offset_bottom = 32.0
+
+[node name="Icon 4" type="ColorRect" parent="Settings Buttons/Controller/Icon" unique_id=504812160]
+layout_mode = 0
+offset_left = 6.0
+offset_right = 35.0
+offset_bottom = 17.0
+
+[node name="Icon 5" type="ColorRect" parent="Settings Buttons/Controller/Icon" unique_id=463378531]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 17.0
+offset_right = 28.0
+offset_bottom = 25.0
+
+[node name="Icon 6" type="ColorRect" parent="Settings Buttons/Controller/Icon" unique_id=1352786956]
+layout_mode = 0
+offset_left = 35.0
+offset_right = 41.0
+offset_bottom = 32.0
+
+[node name="Icon 7" type="ColorRect" parent="Settings Buttons/Controller/Icon" unique_id=628042026]
+layout_mode = 0
+offset_left = 42.0
+offset_top = -5.0
+offset_right = 56.0
+offset_bottom = -1.0
+
+[node name="Icon 8" type="ColorRect" parent="Settings Buttons/Controller/Icon" unique_id=1968949375]
+layout_mode = 0
+offset_left = -15.0
+offset_top = -5.0
+offset_right = -1.0
+offset_bottom = -1.0
+
+[node name="Button" type="Button" parent="Settings Buttons/Controller" unique_id=819742261]
+layout_mode = 0
+offset_right = 113.0
+offset_bottom = 113.0
+flat = true
+
+[node name="Hitbox" type="Area2D" parent="Settings Buttons/Controller" unique_id=94661366]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Settings Buttons/Controller/Hitbox" unique_id=2099130367]
+position = Vector2(56.5, 56.5)
+shape = SubResource("RectangleShape2D_u1hfu")
+
+[node name="Cursor" parent="Settings Buttons" unique_id=1103410415 instance=ExtResource("3_u1hfu")]
+
+[node name="Label" type="Label" parent="Settings Buttons" unique_id=2004898228]
+offset_left = 120.0
+offset_top = 185.0
+offset_right = 341.0
+offset_bottom = 263.0
+theme_override_font_sizes/font_size = 57
+text = "Settings"
+
+[connection signal="pressed" from="Settings Buttons/Back" to="Settings Buttons/Back" method="_on_pressed_set"]
+[connection signal="pressed" from="Settings Buttons/Mouse/Button" to="." method="_set_mouse"]
+[connection signal="area_entered" from="Settings Buttons/Mouse/Hitbox" to="." method="_mouse_hover_over"]
+[connection signal="area_exited" from="Settings Buttons/Mouse/Hitbox" to="." method="_mouse_hover_off"]
+[connection signal="pressed" from="Settings Buttons/Controller/Button" to="." method="_set_controller"]
+[connection signal="area_entered" from="Settings Buttons/Controller/Hitbox" to="." method="_controller_hover_over"]
+[connection signal="area_exited" from="Settings Buttons/Controller/Hitbox" to="." method="_controller_hover_off"]
