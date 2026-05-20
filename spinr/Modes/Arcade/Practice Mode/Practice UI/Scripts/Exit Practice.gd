@@ -2,11 +2,8 @@ extends Label
 
 # Variables ----------------------------------------------------------------------------------------
 
-# Back Button
-var back = "Back"
-
 # Scenes
-var mainMenu = "res://Screens/Main Menu/Main Menu.tscn"
+@export var mainMenu : PackedScene
 
 # Functions ----------------------------------------------------------------------------------------
 
@@ -17,7 +14,9 @@ func _ready():
 		self.text = "Press 'Esc' to exit"
 
 func _process(_delta):
-	if Input.is_action_just_pressed(back):
+	if Input.is_action_just_pressed("Escape"):
 		global.score = 0
 		global.scoreMult = 1.0
-		get_tree().change_scene_to_file(mainMenu)
+		
+		if (mainMenu):
+			get_tree().change_scene_to_packed(mainMenu)
