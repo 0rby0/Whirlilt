@@ -15,7 +15,15 @@ var mapsPath : String = userPath + "/SpinR/"
 # Functions ----------------------------------------------------------------------------------------
 
 func _ready() -> void:
+	var loadedSettings = ConfigFileHandler.load_input_settings()
+	global.inputType = loadedSettings.inputMethod
+	global.useCursor = loadedSettings.useCursor
+	
 	DirAccess.make_dir_recursive_absolute(mapsPath)
+	
+	if Input.get_connected_joypads().size() == 0:
+		global.inputType = "mouse"
+		global.useCursor = false
 	
 	global.focused = false
 	global.mmTitle = null

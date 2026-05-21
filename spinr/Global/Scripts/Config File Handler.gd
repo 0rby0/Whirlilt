@@ -11,6 +11,7 @@ var settingsFilePath = userPath + "/SpinR/settings.ini"
 func _ready():
 	if !FileAccess.file_exists(settingsFilePath):
 		config.set_value("input", "inputMethod", "mouse")
+		config.set_value("input", "useCursor", false)
 		
 		config.save(settingsFilePath)
 	else:

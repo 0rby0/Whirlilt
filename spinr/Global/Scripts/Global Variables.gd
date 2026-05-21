@@ -1,7 +1,8 @@
 extends Node
 
 # Settings
-var inputType = "mouse"
+var inputType : String
+var useCursor : bool
 
 # Map Variables
 var beat = 0
