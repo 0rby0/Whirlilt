@@ -2,49 +2,31 @@ extends Node2D
 
 # Variables ----------------------------------------------------------------------------------------
 
-# Orb Prefab
-var orb = preload("res://Objects/Global/Orb/Orb.tscn")
-
-# Orb Parent Node
-@export var orbs : Node2D
-
-# RNG Module
+@export var orb : PackedScene
+@export var orbParent : Node2D
 var rng = RandomNumberGenerator.new()
-
-# Orb Spawn Chance
-# RNG Minimum Value
-var rngMin = 0
-# RNG Maximum Value
-var rngMax = 1
-# Required Value
-var reqVal = 1
-
-# RNG Angle
-# Angle Minimum Value
-var angMin = 0
-# Angle Maximum Value
-var angMax = 360
-
-# RNG End Beat Values
-# Minimum End Value
-var minEnd = 1
-# Maximum End Value
-var maxEnd = 5
-
-# Distance To Centre
-var dist = 216.0
+var rngMinimum : int = 0
+var rngMaximum : int = 1
+var requiredValue : int = 1
+var minimumAngle : int = 0
+var maximumAngle : int = 360
+var minimumEndBeat : int = 1
+var maximumEndBeat : int = 5
+var centreDistance : float = 216.0
 
 # Functions ----------------------------------------------------------------------------------------
 
 func _create_timer_out():
-	if rng.randi_range(rngMin,rngMax) == reqVal :
-		$"..".rotation = rng.randf_range(angMin, angMax)
+	if !orb: return
+	
+	if rng.randi_range(rngMinimum, rngMaximum) == requiredValue :
+		$"..".rotation = rng.randf_range(minimumAngle, maximumAngle)
 		var orbInstance = orb.instantiate()
-		orbInstance.distanceToEnd = dist
+		orbInstance.distanceToEnd = centreDistance
 		orbInstance.distanceToTravel = orbInstance.distanceToEnd
 		orbInstance.startOnBeat = global.beat
-		orbInstance.endOnBeat = global.beat + rng.randi_range(minEnd, maxEnd)
+		orbInstance.endOnBeat = global.beat + rng.randi_range(minimumEndBeat, maximumEndBeat)
 		orbInstance.speedToTravel = orbInstance.distanceToTravel / (orbInstance.endOnBeat - orbInstance.startOnBeat)
 		orbInstance.look_at($"..".position)
 		self.add_child(orbInstance)
-		orbInstance.reparent(orbs)
+		orbInstance.reparent(orbParent)

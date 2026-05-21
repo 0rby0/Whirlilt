@@ -56,5 +56,3 @@ buttonText = "Back to Menu"
 executeScript = ExtResource("7_ii1ny")
 
 [node name="Player" parent="." unique_id=1084173632 instance=ExtResource("1_agwh6")]
-
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=933464564]

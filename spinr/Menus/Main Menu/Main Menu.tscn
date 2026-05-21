@@ -57,5 +57,3 @@ buttonText = "Exit"
 executeScript = ExtResource("7_rh2gb")
 
 [node name="Player" parent="." unique_id=1084173632 instance=ExtResource("4_u516p")]
-
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=437122455]
