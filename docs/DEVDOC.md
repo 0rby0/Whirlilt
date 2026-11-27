@@ -1,5 +1,5 @@
-# SpinR Development Document
-#### Last Updated: 05/02/2026 | First Created: 09/01/2026
+# Whirlilt Development Document
+#### Last Updated: 27/11/2026 | First Created: 09/01/2026
 
 ## Notes
 * All dates will be written in the format dd/mm/yyyy

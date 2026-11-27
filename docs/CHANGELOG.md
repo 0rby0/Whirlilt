@@ -1,5 +1,5 @@
-Z# SpinR Design Document
-#### Last Updated: 04/02/2026 | First Created: 26/01/2026
+# Whirlilt Design Document
+#### Last Updated: 27/11/2026 | First Created: 26/01/2026
 
 ## Notes
 * All dates will be written in the format dd/mm/yyyy
@@ -9,6 +9,10 @@ Z# SpinR Design Document
 	* X represents the update number.
 	* Y represents any minor adjustments or fixes
 * Any time a version number is refrences with only two points, assume it is excluding the first version number.
+
+> ## 2.2.2
+> * Changed project name
+> * The project will likely not recieve any more updates or changes as I am only re-publisising it to show my work
 
 > ## 2.2.1
 > * Fixed version numbering

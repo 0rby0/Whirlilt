@@ -2,21 +2,22 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2re6hfs2pd6u"
-path="res://.godot/imported/Delete Marker.png-cee555321f3c791431fc5d588a62f0d6.ctex"
+uid="uid://cs6hmacw23rlr"
+path="res://.godot/imported/Mouse Selected.png-920dd599cf9a347b37045b11dd83649b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Modes/Arcade/Map Maker/Marker/Assets/Delete Marker.png"
-dest_files=["res://.godot/imported/Delete Marker.png-cee555321f3c791431fc5d588a62f0d6.ctex"]
+source_file="res://Menus/Settings/Control Button/Assets/Mouse Selected.png"
+dest_files=["res://.godot/imported/Mouse Selected.png-920dd599cf9a347b37045b11dd83649b.ctex"]
 
 [params]
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
@@ -25,6 +26,8 @@ compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false
 mipmaps/limit=-1
+mipmaps/preserve_alpha_test_coverage=false
+mipmaps/alpha_test_threshold=0.5
 roughness/mode=0
 roughness/src_normal=""
 process/channel_remap/red=0

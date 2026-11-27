@@ -1,13 +1,13 @@
-# SpinR Design Document
-#### Last Updated: 08/12/2025 | First Created: 01/12/2025
+# Whirlilt Design Document
+#### Last Updated: 27/11/2025 | First Created: 01/12/2025
 
 ## Notes
 * All dates will be written in the format dd/mm/yyyy
 * Any ideas discussed in the final section of this document will be expanded on or otherwise furthur discussed in DEVDOC.md after the main gameplay
 is completed.
 
-## What is SpinR?
-SpinR is a rythm game in which the player controls a point on a circle in the centre of the screen. The player rotates this point around the circle
+## What is Whirlilt?
+Whirlilt is a rythm game in which the player controls a point on a circle in the centre of the screen. The player rotates this point around the circle
 to hit orbs that are moving towards the centre of the screen. The player must hit the orbs in time with the music to gain score and avoid failing the
 game.
 
@@ -19,7 +19,7 @@ systems, tools and syntax to create the game, which should lead to a better prod
 ## Core Gameplay
 
 ### Spinning
-The spinning of SpinR is achieved by having a square (or possibly other shapes) as a child node of a marker. This allows the square to rotate around
+The spinning of Whirlilt is achieved by having a square (or possibly other shapes) as a child node of a marker. This allows the square to rotate around
 a point rather than spinning in place. A collision shape can then be attached to the square to make the orbs hit the square. The rotation of the
 square can be achieved by using the "vector" of the joystick and rotating the player to face that point. Alternatively, as a temporary option for
 testing, the object can be rotated to face the mouse using the mouse position gathered by the engine.

@@ -2,29 +2,32 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bio5skx52003t"
-path="res://.godot/imported/orb.png-e873b66a34bfc70884275410dde836dd.ctex"
+uid="uid://jqt610vurqr7"
+path="res://.godot/imported/Mouse Unselected.png-431fb6f9f6b875cefb7faec4655bbd01.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Global/Objects/Orb/Assets/orb.png"
-dest_files=["res://.godot/imported/orb.png-e873b66a34bfc70884275410dde836dd.ctex"]
+source_file="res://Menus/Settings/Control Button/Assets/Mouse Unselected.png"
+dest_files=["res://.godot/imported/Mouse Unselected.png-431fb6f9f6b875cefb7faec4655bbd01.ctex"]
 
 [params]
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
+mipmaps/preserve_alpha_test_coverage=false
+mipmaps/alpha_test_threshold=0.5
 roughness/mode=0
 roughness/src_normal=""
 process/channel_remap/red=0
